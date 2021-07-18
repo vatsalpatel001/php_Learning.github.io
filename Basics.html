@@ -7,7 +7,11 @@
 	<div class="head" id="head">Php Code Dump By Vatsal Patel</div><br>
 	<br>
 	<div id="master">
-</div><br>
+<lable class="Title deleat count" vat-id="1">ID : 1 &amp; Title : Table and Column names CANNOT be replaced by parameters in PDO</lable><textarea class="txt deleat" vat-id="1"> $queries-&gt;query("UPDATE `?` SET `?`= ? WHERE `id`=?",["tblnme","clmnname","txt","id"]);
+
+// this will not work,
+
+ $queries-&gt;query("UPDATE `tblnme` SET `clmnname`= ? WHERE `id`=?",["txt","id"]);</textarea><lable class="Title deleat count" vat-id="2">ID : 2 &amp; Title : php variable default value,.</lable><textarea class="txt deleat" vat-id="2">$name = isset($_GET['name']) ? $_GET['name']:'Vatsal Patel';</textarea></div><br>
 	<br>
 	<textarea class="sub subover" id="code0" placeholder="ID"></textarea> 
 	<textarea class="sub subover" id="code1" placeholder="Title"></textarea> <br>

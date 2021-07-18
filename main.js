@@ -28,7 +28,7 @@ function highlighter(){
 });
 document.querySelectorAll(".txt").forEach(el=>{
 	txx = el.innerHTML.replace(/\n/g, '<br>\n');
-	el.innerHTML = w3CodeColorize(txx,"php");
+	el.innerHTML = w3CodeColorize(txx,"js");
  	el.style.fontFamily = "Consolas,'Courier New', monospace";
 
 
