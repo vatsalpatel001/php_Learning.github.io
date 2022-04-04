@@ -1,0 +1,67 @@
+<head>
+	<title>Php Code Dump By Vatsal Patel</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="mastermind();">
+	<div class="head" id="head">Php Code Dump By Vatsal Patel</div><br>
+	<br>
+	<div id="master">
+		<br><br>
+	<a href="./Read_Write_Excel.zip">Demo package</a>
+<lable class="Title deleat count" vat-id="1">ID : 1 &amp; Title : Read Excel</lable><textarea class="txt deleat" vat-id="1">&lt;?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+date_default_timezone_set('Asia/Kolkata');
+        require_once 'phpexcel2/Classes/PHPExcel/IOFactory.php';
+        $objPHPExcel = PHPExcel_IOFactory::load("myExcelFile.xlsx");
+        $objWorksheet = $objPHPExcel-&gt;getActiveSheet();
+
+        //add the new row
+        $num_rows = $objPHPExcel-&gt;getActiveSheet()-&gt;getHighestRow();
+        $objWorksheet-&gt;insertNewRowBefore($num_rows + 1, 1);
+
+        echo '&lt;table&gt;'."\n";
+        echo '&lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;View Log&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;'."\n";
+        echo '&lt;tbody&gt;'."\n";
+        foreach ($objWorksheet-&gt;getRowIterator() as $row) {
+        echo '&lt;tr&gt;'."\n";
+        $cellIterator = $row-&gt;getCellIterator();
+        $cellIterator-&gt;setIterateOnlyExistingCells(false);
+        foreach ($cellIterator as $cell) {
+        echo '&lt;td&gt;'.$cell-&gt;getValue().'&lt;/td&gt;'."\n";
+        }
+        echo '&lt;/tr&gt;'."\n";
+        }
+        echo '&lt;/tbody&gt;'."\n";
+        echo '&lt;/table&gt;'."\n";
+        ?&gt;</textarea><lable class="Title deleat count" vat-id="2">ID : 2 &amp; Title : Write Excel</lable><textarea class="txt deleat" vat-id="2">&lt;?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+date_default_timezone_set('Asia/Kolkata');
+        require_once 'phpexcel2/Classes/PHPExcel/IOFactory.php';
+        $objPHPExcel = PHPExcel_IOFactory::load("myExcelFile.xlsx");
+
+$objPHPExcel-&gt;setActiveSheetIndex(0);
+$row = $objPHPExcel-&gt;getActiveSheet()-&gt;getHighestRow()+1;
+//echo $row;
+$objPHPExcel-&gt;getActiveSheet()-&gt;SetCellValue('A'.$row, date("Y-m-d",time()));
+$objPHPExcel-&gt;getActiveSheet()-&gt;SetCellValue('B'.$row, date("h:i:sa"));
+$objPHPExcel-&gt;getActiveSheet()-&gt;SetCellValue('C'.$row, "C");
+$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+$objWriter-&gt;save('myExcelFile.xlsx');
+       
+   
+        ?&gt;</textarea></div><br>
+	<br>
+	<textarea class="sub subover" id="code0" placeholder="ID"></textarea> 
+	<textarea class="sub subover" id="code1" placeholder="Title"></textarea> <br>
+	<textarea class="sub subover" id="code2" placeholder="code"></textarea><br>
+	<a href="javascript:runner()" id="btn">Submit</a> <a href="javascript:deleat()" id="btn">Delete</a> <a href="javascript:down()" id="btn">Download</a> 
+	<textarea class="sub subover subover1" id="code3">Number of ID : 2</textarea> 
+	<br>
+	<script type="text/javascript" src="main.js"></script></body>
